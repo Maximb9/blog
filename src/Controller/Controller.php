@@ -19,7 +19,7 @@ abstract class Controller
     {
         http_response_code(404);
         $this->view->render('404.tpl', [
-            'title' => 'Страницв не найдена',
+            'title' => 'Страница не найдена',
         ]);
     }
 }

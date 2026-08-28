@@ -9,7 +9,9 @@
 <body>
 <div class="page">
     <header class="header">
-        <a href="/" class="logo">Blog</a>
+        <a href="/" class="logo">
+            <img src="/images/blog-logo.png" alt="Блог" class="logo__icon">
+        </a>
     </header>
 
     <main>

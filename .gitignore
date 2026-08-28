@@ -1,0 +1,9 @@
+/.idea/
+/.env
+/vendor/
+/var/cache/smarty/
+/public/uploads/*
+/public/assets/css/*
+/node_modules/
+npm-debug.log*
+.DS_Store

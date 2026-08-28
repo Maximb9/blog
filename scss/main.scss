@@ -1,0 +1,20 @@
+@use 'variables';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: variables.$font-family;
+    color: variables.$text-color;
+    background-color: variables.$background-color;
+}
+
+.page {
+    max-width: variables.$page-width;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}

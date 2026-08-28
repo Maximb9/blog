@@ -8,5 +8,7 @@
     </h3>
 
     <p>{$article.description|escape}</p>
-    <p class="article-card__meta">Просмотры: {$article.views|escape}</p>
+    <p class="article-card__meta">
+        Дата публикации: {$article.published_at|date_format:'%d.%m.%Y'}  Просмотры: {$article.views|escape}
+    </p>
 </article>

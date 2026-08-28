@@ -8,9 +8,9 @@
 
         <h1>{$article.title|escape}</h1>
         <p class="article__meta">
-            Views: {$article.views|escape}
+            Дата публикации: {$article.published_at|date_format:'%d.%m.%Y'} · Просмотры: {$article.views|escape}
             {if $categories|@count > 0}
-                | Categories:
+                | Категории:
                 {foreach $categories as $category name="cats"}
                     <a href="/category/{$category.id}">{$category.name|escape}</a>{if not $smarty.foreach.cats.last}, {/if}
                 {/foreach}

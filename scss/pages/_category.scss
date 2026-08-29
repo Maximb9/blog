@@ -1,0 +1,122 @@
+.category-page__back {
+    color: #68766e;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.category-page__header {
+    max-width: 720px;
+    margin: 48px 0 40px;
+}
+
+.category-page__label {
+    margin: 0 0 8px;
+    color: #718273;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.category-page__title {
+    margin: 0;
+    color: #1d2924;
+    font-size: clamp(42px, 7vw, 68px);
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.category-page__description {
+    margin: 18px 0 0;
+    color: #6c7771;
+    font-size: 18px;
+}
+
+.category-page__sorting {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.category-page__sorting-label {
+    margin-right: 4px;
+    color: #7b857f;
+    font-size: 14px;
+}
+
+.category-page__sort {
+    padding: 7px 14px;
+    color: #5d6d62;
+    background: #ffffff;
+    border: 1px solid #dfe5dd;
+    border-radius: 20px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.category-page__sort--active {
+    color: #ffffff;
+    background: #526b58;
+    border-color: #526b58;
+}
+
+.category-page__empty {
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e3e8e1;
+    border-radius: 16px;
+}
+
+.category-page .article-list {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.category-page .article-card {
+    display: grid;
+    grid-template-columns: 44% 1fr;
+}
+
+.category-page .article-card__image-link {
+    min-height: 240px;
+    aspect-ratio: auto;
+}
+
+.category-page .article-card__meta {
+    font-size: 12px;
+}
+
+.category-page .article-card__title {
+    font-size: 22px;
+}
+
+.category-page .article-card__description {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+@media (max-width: 900px) {
+    .category-page .article-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .category-page__sorting {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .category-page__sorting-label {
+        width: 100%;
+    }
+
+    .category-page .article-card {
+        grid-template-columns: 1fr;
+    }
+
+    .category-page .article-card__image-link {
+        min-height: 0;
+        aspect-ratio: 16 / 10;
+    }
+}

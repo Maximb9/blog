@@ -26,7 +26,7 @@ final class CategoryRepository
             'SELECT DISTINCT c.id, c.name, c.description
              FROM categories c
              INNER JOIN article_categories ac ON ac.category_id = c.id
-             ORDER BY c.name'
+             ORDER BY c.id'
         );
 
         return $statement->fetchAll();

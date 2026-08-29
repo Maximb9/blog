@@ -1,5 +1,4 @@
-USE
-blog;
+USE blog;
 
 CREATE TABLE categories
 (

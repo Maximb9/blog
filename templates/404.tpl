@@ -1,7 +1,10 @@
 {extends file="layouts/main.tpl"}
 
 {block name="content"}
-    <h1>404</h1>
-    <p>Страница не найдена</p>
-    <a href="/">Обратно</a>
+    <div class="not-found">
+        <p class="not-found__code">404</p>
+        <h1 class="not-found__title">Страница не найдена</h1>
+        <p class="not-found__text">Возможно, она была удалена или адрес указан неверно.</p>
+        <a href="/" class="not-found__link">Вернуться на главную</a>
+    </div>
 {/block}

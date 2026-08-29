@@ -1,0 +1,50 @@
+.not-found {
+    max-width: 600px;
+    margin: 8px auto 0;
+    padding: 64px;
+    background: #ffffff;
+    border: 1px solid #e3e8e1;
+    border-radius: 24px;
+    text-align: center;
+}
+
+.not-found__code {
+    margin: 0;
+    color: #a7b5a7;
+    font-size: 96px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.not-found__title {
+    margin: 20px 0 0;
+    color: #1d2924;
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.not-found__text {
+    margin: 16px auto 28px;
+    color: #748078;
+    line-height: 1.6;
+}
+
+.not-found__link {
+    display: inline-block;
+    padding: 12px 22px;
+    color: #ffffff;
+    background: #526b58;
+    border-radius: 24px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .not-found {
+        padding: 44px 24px;
+    }
+
+    .not-found__code {
+        font-size: 72px;
+    }
+}

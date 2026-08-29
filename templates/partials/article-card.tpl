@@ -1,14 +1,17 @@
 <article class="article-card">
-    {if $article.image}
-        <img src="{$article.image|escape}" alt="{$article.title|escape}" class="article-card__image">
-    {/if}
+    <a href="/article/{$article.id}" class="article-card__image-link">
+        {if $article.image}
+            <img src="{$article.image|escape}" alt="{$article.title|escape}" class="article-card__image">
+        {/if}
+    </a>
 
-    <h3>
-        <a href="/article/{$article.id}">{$article.title|escape}</a>
-    </h3>
-
-    <p>{$article.description|escape}</p>
-    <p class="article-card__meta">
-        Дата публикации: {$article.published_at|date_format:'%d.%m.%Y'}  Просмотры: {$article.views|escape}
-    </p>
+    <div class="article-card__body">
+        <p class="article-card__meta">
+            {$article.published_at|date_format:'%d.%m.%Y'} · {$article.views|escape} просмотров
+        </p>
+        <h3 class="article-card__title">
+            <a href="/article/{$article.id}" class="article-card__title-link">{$article.title|escape}</a>
+        </h3>
+        <p class="article-card__description">{$article.description|escape}</p>
+    </div>
 </article>

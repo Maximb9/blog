@@ -14,12 +14,17 @@ final class HomeController extends Controller
         $categoryRepository = new CategoryRepository();
         $articleRepository = new ArticleRepository();
 
+        $categoryList = $categoryRepository->findWithArticles();
+        $articlesByCategory = $articleRepository->findLatestGroupedByCategoryIds(
+            array_column($categoryList, 'id')
+        );
+
         $categories = [];
 
-        foreach ($categoryRepository->findWithArticles() as $category) {
+        foreach ($categoryList as $category) {
             $categories[] = [
                 'category' => $category,
-                'articles' => $articleRepository->findLatestByCategoryId((int) $category['id']),
+                'articles' => $articlesByCategory[(int) $category['id']] ?? [],
             ];
         }
 

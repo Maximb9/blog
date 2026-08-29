@@ -22,21 +22,43 @@ final class ArticleRepository
         return $article ?: null;
     }
 
-    public function findLatestByCategoryId(int $categoryId, int $limit = 3): array
+    public function findLatestGroupedByCategoryIds(array $categoryIds, int $limit = 3): array
     {
+        if ($categoryIds === []) {
+            return [];
+        }
+
+        $categoryIds = array_map('intval', $categoryIds);
+        $placeholders = implode(', ', array_fill(0, count($categoryIds), '?'));
+
         $statement = Database::connection()->prepare(
-            'SELECT a.id, a.title, a.description, a.image, a.views, a.published_at
+            "SELECT a.id, a.title, a.description, a.image, a.views, a.published_at,
+                    ac.category_id
              FROM articles a
              INNER JOIN article_categories ac ON ac.article_id = a.id
-             WHERE ac.category_id = :category_id
-             ORDER BY a.published_at DESC
-             LIMIT :limit'
+             WHERE ac.category_id IN ($placeholders)
+             ORDER BY ac.category_id, a.published_at DESC"
         );
-        $statement->bindValue('category_id', $categoryId, PDO::PARAM_INT);
-        $statement->bindValue('limit', $limit, PDO::PARAM_INT);
-        $statement->execute();
+        $statement->execute($categoryIds);
 
-        return $statement->fetchAll();
+        $grouped = [];
+
+        foreach ($statement->fetchAll() as $row) {
+            $categoryId = (int) $row['category_id'];
+
+            if (!isset($grouped[$categoryId])) {
+                $grouped[$categoryId] = [];
+            }
+
+            if (count($grouped[$categoryId]) >= $limit) {
+                continue;
+            }
+
+            unset($row['category_id']);
+            $grouped[$categoryId][] = $row;
+        }
+
+        return $grouped;
     }
 
     public function findCategoriesByArticleId(int $articleId): array

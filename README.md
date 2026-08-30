@@ -14,6 +14,7 @@
 
 ```bash
 cp .env.example .env
+mkdir -p var/cache/smarty && chmod -R 777 var
 docker compose up -d --build
 docker compose exec php composer install
 docker compose exec php php bin/seed.php
